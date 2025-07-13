@@ -66,98 +66,42 @@ Configure connection -> echo "ATLAS_URI='your_mongodb_uri'" > .env
 
 ## 📂 Exercise Catalog
 <details> <summary><strong>👓 Level 1: Optical Store</strong></summary>
+
+An optician, called "Cul d'Ampolla", wants to computerize customer management and eyeglass sales.
+
+First of all, the optician wants to know who the supplier of each pair of glasses is. Specifically, they want to know about each supplier : The name, address (street, number, floor, door, city, postal code and country), telephone, fax, NIF.
+
+About the glasses, you want to know: The brand, the prescription of each lens, the type of frame (floating, plastic or metal), the color of the frame, the color of each lens and the price.
+
+From the customers you want to store: Name, postal address, telephone, email, registration date.
+When a new customer arrives, store the customer who recommended the establishment (provided someone recommended it).
+Our system will need to indicate which employee sold each pair of glasses. It will define the day/time the sale was made.
 Exercise 1: Customer View Schema
+Imagine we have the graphical interface from the point of view of an Optician customer. How would you design the database that would facilitate the information?
+Exercise 2: Glasses Viwe Schema
+What if the point of view was the interface and the glasses were the same?
 
-javascript
-// Schema based on image_1 interface
-const customerSchema = new Schema({
-  name: String,
-  address: {
-    street: String,
-    number: String,
-    floor: String,
-    door: String,
-    postalCode: String,
-    country: String
-  },
-  telephone: String,
-  email: String,
-  registerDate: Date,
-  recommendedBy: { type: Schema.Types.ObjectId, ref: 'Customer' }, // Self-reference
-  purchases: [{
-    glasses: { type: Schema.Types.ObjectId, ref: 'Glasses' },
-    soldBy: { type: Schema.Types.ObjectId, ref: 'Employee' },
-    saleDate: Date
-  }]
-});
-Exercise 2: Glasses View Schema
-
-javascript
-// Schema based on image_2 interface
-const glassesSchema = new Schema({
-  brand: String,
-  prescription: {
-    left: Number,
-    right: Number
-  },
-  frameType: { type: String, enum: ['floating', 'plastic', 'metal'] },
-  frameColor: String,
-  lensColor: String,
-  price: Number,
-  supplier: {
-    name: String,
-    nif: String,
-    address: {
-      street: String,
-      number: String,
-      city: String,
-      postalCode: String,
-      country: String
-    },
-    telephone: String,
-    fax: String
-  }
-});
 </details><details> <summary><strong>🍕 Level 2: Food Delivery System</strong></summary>
 Exercise 1: Pizzeria Schema
 
-javascript
-// Schema based on image_3 interface
-const orderSchema = new Schema({
-  orderNumber: String,
-  timestamp: Date,
-  deliveryType: { type: String, enum: ['delivery', 'pickup'] },
-  items: [{
-    product: { type: Schema.Types.ObjectId, ref: 'Product' },
-    quantity: Number,
-    notes: String
-  }],
-  totalPrice: Number,
-  customer: {
-    name: String,
-    surname: String,
-    address: {
-      street: String,
-      number: String,
-      floor: String,
-      postalCode: String,
-      town: String,
-      province: String
-    },
-    telephone: String
-  },
-  store: { type: Schema.Types.ObjectId, ref: 'Store' },
-  deliveryPerson: { type: Schema.Types.ObjectId, ref: 'Employee' },
-  deliveryTime: Date
-});
+You have been hired to design a website that allows you to order food at home online.
 
-const pizzaSchema = new Schema({
-  name: String,
-  description: String,
-  imageUrl: String,
-  price: Number,
-  category: { type: String, index: true } // Categories change yearly
-});
+Keep the following guidelines in mind when modeling what the project database would look like:
+
+For each client we store a unique identifier: Name, surname, address, postal code, town, province, telephone number.
+
+A person can place many orders, but a single order can only be placed by a single person. A unique identifier is stored for each order: Date/time of placement, whether the order is for home delivery or for collection in store, the quantity of products selected of each type, the total price, and a note with additional information.
+
+An order can consist of one or several products.
+
+
+The products can be pizzas, hamburgers and drinks. A unique identifier is stored for each product: Name, description, image, price. In the case of pizzas, there are several categories that can change names throughout the year.
+
+An order is managed by a single store and a store can manage many orders. A unique identifier is stored for each store: Address, postal code, city, province.
+
+
+Many employees can work in a store and an employee can only work in one store. For each employee, a unique identifier is stored: Name, surname, NIF, Telephone, if they work as a cook or delivery person. For home delivery orders, it is important to store who the delivery person is who delivers the order and the date/time of delivery.
+
 </details>
 
 ## 🎯 Learning Goals
@@ -186,52 +130,13 @@ const pizzaSchema = new Schema({
 ✔️ Self-Referencing: Customer referrals within same collection
 
 
-## 🖼️ UI-Driven Design Samples
-
-Interface	Schema Approach
-
-Customer Profile
-(image_1)	Embedded purchases array with populated glasses
-Product View
-(image_2)	Fully embedded supplier details
-Order Tracking
-(image_3)	Hybrid: customer details embedded, products referenced
-
 ## 🤝 Contributions
 
 ⭐ Star the repository
 
 🍴 Fork the project
 
-Add new schema designs:
-
-bash
-/level1/
-   optical-customer.js
-   optical-glasses.js
-/level2/
-   pizzeria-orders.js
-Include sample documents in /data/
-
 📥 Submit pull request with schema validations
 
-## ⚠️ Deployment Notes
 
-Atlas Setup: Enable mongodb+srv protocol in connection string
-
-Index Management: Create indexes after initial data load
-
-javascript
-// Example index creation
-db.glasses.createIndex({ brand: 1, price: -1 })
-Data Population: Use mongorestore for sample datasets
-
-## 🚀 Design Challenge: For advanced practice, implement aggregation pipelines that:
-
-Calculate monthly sales per supplier (Optical Store)
-
-Find average delivery time per store (Pizzeria)
-
-Show customer lifetime value (Optical Store)
-
-Submit solutions to advanced-aggregations/ folder!
+## 🚀 Thanks for Visiting = )
