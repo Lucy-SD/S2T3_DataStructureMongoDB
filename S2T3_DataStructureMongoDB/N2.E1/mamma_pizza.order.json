@@ -1,0 +1,90 @@
+{
+  "order": {
+    "_id": "687139044c2ed2ec827a4458",
+    "store": {
+      "_id": "687139044c2ed2ec827a4459",
+      "address": {
+        "street": "C/ Camaron",
+        "number": "74",
+        "floor": "1",
+        "door": "A",
+        "city": "Barcelona",
+        "postal_code": "08002",
+        "province": "Barcelona"
+      },
+      "employees": [
+        {
+          "_id": "687139044c2ed2ec827a4460",
+          "name": "Juni",
+          "lastname": "Lolan",
+          "nif": "14758236R",
+          "phone": "+34624310574",
+          "role": "cocinero"
+        },
+        {
+          "_id": "687139044c2ed2ec827a4461",
+          "name": "Loli",
+          "lastname": "Moran",
+          "nif": "47581036P",
+          "phone": "+34635015763",
+          "role": "deliverer"
+        }
+      ]
+    },
+    "client": {
+      "_id": "687139044c2ed2ec827a4471",
+      "name": "Ignacia",
+      "lastname": "Romero",
+      "phone": "+34697540354"
+    },
+    "type": {
+      "delivery": {
+        "address": {
+          "street": "C/ Matambre",
+          "number": "87",
+          "floor": "5",
+          "door": "C",
+          "city": "Barcelona",
+          "postal_code": "08003",
+          "province": "Barcelona"
+        },
+        "deliverer_id": "687139044c2ed2ec827a4461",
+        "delivered_at": "2025-07-06 13:31:24"
+      }
+    },
+    "products": [
+      {
+        "_id": "687139044c2ed2ec827a4462",
+        "type": "Pizza",
+        "name": "Hawaiana",
+        "description": "",
+        "image": "",
+        "categroy": "Tropicales",
+        "price": 16.5,
+        "quantity": 1
+      },
+      {
+        "_id": "687139044c2ed2ec827a4465",
+        "type": "Hamburguesa",
+        "name": "Doble queso",
+        "description": "",
+        "image": "",
+        "price": 15.5,
+        "quantity": 1
+      },
+      {
+        "_id": "687139044c2ed2ec827a4466",
+        "type": "Bebida",
+        "name": "Refresquisimo limón",
+        "description": "",
+        "image": "",
+        "price": 2.5,
+        "quantity": 2
+      }
+    ],
+    "products_quantity": 11,
+    "total_price": 111.5,
+    "created_at": "2025-07-06 11:44:22",
+    "aditional_info": "Entregar a las 13.30. Gracias."
+  }
+}

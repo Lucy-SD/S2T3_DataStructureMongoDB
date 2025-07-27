@@ -1,0 +1,78 @@
+[{
+  "_id": {
+    "$oid": "68710b5b4c2ed2ec827a4447"
+  },
+  "brand": "VerMejor",
+  "graduation": {
+    "left": 2.25,
+    "right": 1.75
+  },
+  "type": "metálico",
+  "frame_color": "negro",
+  "glass_color": "negro",
+  "price": 107.98,
+  "supplier": {
+    "_id": {
+      "$oid": "682a2b7f8c6eb8a357421240"
+    },
+    "name": "Gafotas",
+    "address": {
+      "street": "C/ Lluna",
+      "number": "122",
+      "floor": "9",
+      "door": "B",
+      "city": "Barcelona",
+      "postal_code": "08025",
+      "country": "España"
+    },
+    "phone": "+34157622180",
+    "fax": null,
+    "nif": "12457852X"
+  },
+  "sales": [
+    {
+      "_id": {
+        "$oid": "6870ea754c2ed2ec827a4420"
+      },
+      "date": "2025-06-15",
+      "seller": {
+        "_id": {
+          "$oid": "6870ea7f4c2ed2ec827a4421"
+        },
+        "name": "Lori"
+      },
+      "customer": {
+        "_id": {
+          "$oid": "6870ea8b4c2ed2ec827a4422"
+        },
+        "name": "MariCarmen",
+        "postal_code": "08040",
+        "email": "maricarmen@mail.com",
+        "client_since": "2025-06-15",
+        "refered_by": null
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6870d68f4c2ed2ec827a43b7"
+      },
+      "date": "2025-07-11",
+      "seller": {
+        "_id": {
+          "$oid": "6870ea7f4c2ed2ec827a4421"
+        },
+        "name": "Lori"
+      },
+      "customer": {
+        "_id": {
+          "$oid": "6870ea7f4c2ed2ec827a4421"
+        },
+        "name": "Pepi",
+        "postal_code": "08010",
+        "email": "pepi@mail.com",
+        "client_since": "2025-07-11",
+        "refered_by": "6870ea8b4c2ed2ec827a4422"
+      }
+    }
+  ]
+}]

@@ -1,0 +1,53 @@
+[{
+  "_id": {
+    "$oid": "6870edc24c2ed2ec827a442b"
+  },
+  "name": "MariPili",
+  "postal_code": "09840",
+  "email": "maripili@mail.com",
+  "client_since": "2025-03-26",
+  "refered_by": null,
+  "sales": {
+    "_id": {
+      "$oid": "6870ea754c2ed2ec827a4420"
+    },
+    "selleres": {
+      "_id": {
+        "$oid": "6870ea7f4c2ed2ec827a4421"
+      },
+      "name": "Laura"
+    },
+    "glasses": {
+      "_id": {
+        "$oid": "6870ea8b4c2ed2ec827a4422"
+      },
+      "brand": "VerMejor",
+      "graduation": {
+        "left": -1.25,
+        "right": -1.75
+      },
+      "type": "pasta",
+      "frame_color": "violeta",
+      "glass_color": "sin color",
+      "price": 137.57,
+      "supplieres": {
+        "_id": {
+          "$oid": "6870d68f4c2ed2ec827a43b7"
+        },
+        "name": "Gafotas",
+        "address": {
+          "street": "C/ Lluna",
+          "number": "127",
+          "floor": "9",
+          "door": "B",
+          "city": "Barcelona",
+          "posta_code": "08024",
+          "country": "España"
+        },
+        "phone": "+34687593104",
+        "fax": null,
+        "nif": "1234578Z"
+      }
+    }
+  }
+}]
